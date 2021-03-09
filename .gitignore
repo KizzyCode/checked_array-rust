@@ -1,0 +1,12 @@
+# Ignore .DS_Store
+*/.DS_Store
+
+# Ignore project files
+.idea/
+.vscode/
+
+# Ignore build results or playgrounds
+Cargo.lock
+target/
+corpus/
+artifacts/

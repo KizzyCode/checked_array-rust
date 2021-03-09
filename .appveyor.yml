@@ -1,0 +1,14 @@
+image: Visual Studio 2019
+
+platform:
+  - x64
+  - Win32
+
+install:
+  - cinst rust-ms
+
+build: false
+
+test_script:
+  - cargo test --verbose
+  - cargo test --verbose --release

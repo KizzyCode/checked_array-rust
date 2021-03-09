@@ -1,0 +1,18 @@
+
+[package]
+name = "checked_array_fuzz"
+version = "0.0.0"
+authors = ["KizzyCode Software Labs./Keziah Biermann <development@kizzycode.de>"]
+publish = false
+edition = "2018"
+
+
+[package.metadata]
+cargo-fuzz = true
+
+
+[dependencies]
+libfuzzer-sys = "0.4"
+arbitrary = { version = "1.0", features = ["derive"] }
+lazy_static = "1.4"
+checked_array = { path = "../" }

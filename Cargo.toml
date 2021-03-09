@@ -1,0 +1,39 @@
+[package]
+name = "checked_array"
+version = "0.1.0"
+edition = "2018"
+authors = ["KizzyCode Software Labs./Keziah Biermann <development@kizzycode.de>"]
+keywords = ["no-panic", "array"]
+categories = ["no-std", "rust-patterns"]
+description = "A checked API for array types"
+license = "BSD-2-Clause OR MIT"
+repository = "https://github.com/KizzyCode/checked_array-rust"
+readme = "README.md"
+
+
+[badges]
+travis-ci = { repository = "KizzyCode/checked_array-rust" }
+appveyor = { repository = "KizzyCode/checked_array-rust" }
+
+
+[features]
+default = ["std"]
+std = []
+
+
+[dependencies]
+
+
+[dev-dependencies]
+
+
+[profile.dev]
+overflow-checks = true
+
+
+[profile.release]
+overflow-checks = true
+
+
+[profile.bench]
+overflow-checks = true
