@@ -205,6 +205,11 @@ impl<Wrapped> Debug for Array<Wrapped> where Wrapped: Debug {
         self.wrapped.fmt(f)
     }
 }
+impl<Wrapped> Default for Array<Wrapped> where Wrapped: Default {
+    fn default() -> Self {
+        Self { wrapped: Wrapped::default() }
+    }
+}
 impl<Wrapped> Copy for Array<Wrapped> where Wrapped: Copy {
     /* Copy is an intrinsic marker trait; no implementation required */
 }
