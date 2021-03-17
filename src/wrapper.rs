@@ -2,8 +2,9 @@ use crate::{
     misc::{ BufferTooSmall, RangeBoundsExt },
     traits::{ ArrayRef, ArrayMut, ArrayAlloc, CanAlloc },
     std::{
-        ops::RangeBounds,
+        cmp::Ordering, ops::RangeBounds,
         fmt::{ self, Debug, Formatter },
+        hash::{ Hash, Hasher },
         slice::{ Iter as SliceIter, IterMut as SliceIterMut }
     }
 };
@@ -204,16 +205,42 @@ impl<Wrapped> Debug for Array<Wrapped> where Wrapped: Debug {
         self.wrapped.fmt(f)
     }
 }
+impl<Wrapped> Copy for Array<Wrapped> where Wrapped: Copy {
+    /* Copy is an intrinsic marker trait; no implementation required */
+}
+impl<Wrapped> Clone for Array<Wrapped> where Wrapped: Clone {
+    fn clone(&self) -> Self {
+        Self { wrapped: self.wrapped.clone() }
+    }
+}
+impl<Wrapped> PartialEq for Array<Wrapped> where Wrapped: PartialEq {
+    fn eq(&self, other: &Self) -> bool {
+        self.wrapped.eq(&other.wrapped)
+    }
+}
+impl<Wrapped> Eq for Array<Wrapped> where Wrapped: Eq {
+    /* Copy is a marker trait; no implementation required */
+}
+impl<Wrapped> PartialOrd for Array<Wrapped> where Wrapped: PartialOrd {
+    fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
+        self.wrapped.partial_cmp(&other.wrapped)
+    }
+}
+impl<Wrapped> Ord for Array<Wrapped> where Wrapped: Ord {
+    fn cmp(&self, other: &Self) -> Ordering {
+        self.wrapped.cmp(&other.wrapped)
+    }
+}
+impl<Wrapped> Hash for Array<Wrapped> where Wrapped: Hash {
+    fn hash<H: Hasher>(&self, state: &mut H) {
+        self.wrapped.hash(state)
+    }
+}
 impl<Wrapped> IntoIterator for Array<Wrapped> where Wrapped: IntoIterator {
     type Item = Wrapped::Item;
     type IntoIter = Wrapped::IntoIter;
 
     fn into_iter(self) -> Self::IntoIter {
         self.wrapped.into_iter()
-    }
-}
-impl<Wrapped> Clone for Array<Wrapped> where Wrapped: Clone {
-    fn clone(&self) -> Self {
-        Self { wrapped: self.wrapped.clone() }
     }
 }
