@@ -106,7 +106,7 @@ pub trait ArrayAlloc<T>: ArrayMut<T> + Sized {
 ///
 ///  - Note: This trait adopts Rust's "panic on allocation failure" policy. While this trait reintroduces a panic cause,
 ///    it's usually much more convenient to use – especially for `std`-types which use `WillPanic` anyway.
-pub trait ArrayAllocPanic<T>: ArrayAlloc<T> {
+pub trait ArrayAllocPanic<T>: Sized {
     /// Creates a newly allocated instance of `Self`
     fn alloc_new() -> Self;
     /// Clones `source` into a newly allocated instance of `Self`
