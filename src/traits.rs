@@ -36,7 +36,7 @@ pub trait ArrayRef<T> {
 }
 
 
-/// A trait for mutalby referencable linear array types
+/// A trait for mutably referencable linear array types
 pub trait ArrayMut<T>: ArrayRef<T> {
     /// The underlying element as mutable slice
     fn as_slice_mut(&mut self) -> &mut [T];

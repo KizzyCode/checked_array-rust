@@ -4,7 +4,7 @@
 [![crates.io](https://img.shields.io/crates/v/checked_array.svg)](https://crates.io/crates/checked_array)
 [![Download numbers](https://img.shields.io/crates/d/checked_array.svg)](https://crates.io/crates/checked_array)
 [![dependency status](https://deps.rs/crate/checked_array/0.1.0/status.svg)](https://deps.rs/crate/checked_array/0.1.0)
-[![Travis CI](https://travis-ci.org/KizzyCode/checked_array-rust.svg?branch=master)](https://travis-ci.org/KizzyCode/checked_array-rust)
+[![Travis CI](https://travis-ci.com/KizzyCode/checked_array-rust.svg?branch=master)](https://travis-ci.com/KizzyCode/checked_array-rust)
 [![Appveyor CI](https://ci.appveyor.com/api/projects/status/github/KizzyCode/checked_array-rust?svg=true)](https://ci.appveyor.com/project/KizzyCode/checked-array-rust)
 
 
