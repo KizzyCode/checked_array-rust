@@ -13,6 +13,10 @@ pub(in crate) mod std {
 /// Miscellaneous stuff
 pub mod misc;
 
+/// A wrapper that implements `CanAlloc` over a preallocated buffer
+mod preallocated;
+pub use preallocated::Preallocated;
+
 /// Byte traits exposing a checked API only
 mod traits;
 pub use crate::traits::{ ArrayRef, ArrayMut, ArrayAlloc, ArrayAllocPanic };
